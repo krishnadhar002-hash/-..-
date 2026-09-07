@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ক্যারেট রেট ক্যালকুলেটর</title>
+    <title>স্বর্ণের হিসাব ও রেট</title>
     <link rel="manifest" href="manifest.json">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             justify-content: center;
         }
@@ -23,58 +23,96 @@
             max-width: 400px;
             border-top: 5px solid #d4af37;
         }
-        h2 { text-align: center; color: #333; margin-bottom: 20px; }
-        label { font-weight: bold; display: block; color: #555; }
+        h2, h3 { text-align: center; color: #333; }
+        h3 { font-size: 18px; margin-top: 25px; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; }
+        label { font-weight: bold; display: block; color: #555; margin-top: 10px; font-size: 14px; }
         input {
             width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            margin-bottom: 20px;
+            padding: 10px;
+            margin-top: 5px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             box-sizing: border-box;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            color: #d4af37;
+            color: #333;
         }
         input:focus { border-color: #d4af37; outline: none; }
+        #rate24k { font-size: 18px; color: #d4af37; margin-bottom: 15px; }
         
         .rate-card {
             background: #fdfbf7;
             border: 1px solid #f1e5c3;
-            padding: 15px;
-            margin-bottom: 10px;
+            padding: 10px 15px;
+            margin-bottom: 8px;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .carat-title { font-size: 18px; font-weight: bold; color: #555; }
-        .price-value { font-size: 20px; font-weight: bold; color: #d4af37; }
+        .carat-title { font-size: 16px; font-weight: bold; color: #555; }
+        .price-value { font-size: 16px; font-weight: bold; color: #d4af37; }
+        
+        .weight-group {
+            display: flex;
+            gap: 10px;
+        }
+        .weight-group div { flex: 1; }
+        
+        .final-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #d4af37;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>ক্যারেট রেট কনভার্টার</h2>
+    <h2>স্বর্ণের রেট ও হিসাব</h2>
     
-    <label>২৪ ক্যারেট রেট (প্রতি ভরি/গ্রাম):</label>
-    <input type="number" id="rate24k" placeholder="যেমন: ১২০০০০" oninput="calculateRates()">
+    <label>২৪ ক্যারেট রেট (প্রতি ভরি):</label>
+    <input type="number" id="rate24k" placeholder="যেমন: ১২০০০০" oninput="calculateAll()">
 
     <div class="rate-card">
         <span class="carat-title">২২ ক্যারেট:</span>
         <span class="price-value" id="rate22k">৳ ০</span>
     </div>
-
     <div class="rate-card">
         <span class="carat-title">২১ ক্যারেট:</span>
         <span class="price-value" id="rate21k">৳ ০</span>
     </div>
-
     <div class="rate-card">
         <span class="carat-title">১৮ ক্যারেট:</span>
         <span class="price-value" id="rate18k">৳ ০</span>
     </div>
+
+    <h3>কাস্টমারের স্বর্ণের হিসাব</h3>
+
+    <label>টেস্ট করা ক্যারেট (যেমন: 20.67):</label>
+    <input type="number" step="0.01" id="testedCarat" placeholder="0.00" oninput="calculateAll()">
+
+    <div class="weight-group">
+        <div>
+            <label>ভরি:</label>
+            <input type="number" id="customerVori" placeholder="0" oninput="calculateAll()">
+        </div>
+        <div>
+            <label>আনা:</label>
+            <input type="number" id="customerAna" placeholder="0" oninput="calculateAll()">
+        </div>
+        <div>
+            <label>রতি:</label>
+            <input type="number" id="customerRoti" placeholder="0" oninput="calculateAll()">
+        </div>
+    </div>
+
+    <div class="final-result" id="customerTotal">কাস্টমার পাবে: ৳০</div>
 </div>
 
 <script src="app.js"></script>
