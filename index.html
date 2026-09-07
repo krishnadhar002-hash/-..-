@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্যারেট রেট ক্যালকুলেটর</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            border-top: 5px solid #d4af37;
+        }
+        h2 { text-align: center; color: #333; margin-bottom: 20px; }
+        label { font-weight: bold; display: block; color: #555; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 18px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        input:focus { border-color: #d4af37; outline: none; }
+        
+        .rate-card {
+            background: #fdfbf7;
+            border: 1px solid #f1e5c3;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .carat-title { font-size: 18px; font-weight: bold; color: #555; }
+        .price-value { font-size: 20px; font-weight: bold; color: #d4af37; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>ক্যারেট রেট কনভার্টার</h2>
+    
+    <label>২৪ ক্যারেট রেট (প্রতি ভরি/গ্রাম):</label>
+    <input type="number" id="rate24k" placeholder="যেমন: ১২০০০০" oninput="calculateRates()">
+
+    <div class="rate-card">
+        <span class="carat-title">২২ ক্যারেট:</span>
+        <span class="price-value" id="rate22k">৳ ০</span>
+    </div>
+
+    <div class="rate-card">
+        <span class="carat-title">২১ ক্যারেট:</span>
+        <span class="price-value" id="rate21k">৳ ০</span>
+    </div>
+
+    <div class="rate-card">
+        <span class="carat-title">১৮ ক্যারেট:</span>
+        <span class="price-value" id="rate18k">৳ ০</span>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
